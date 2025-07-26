@@ -1,1 +1,370 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog Posts - Caltech AI Alignment</title>
+    <meta name="description" content="Blog posts and articles from the Caltech AI Alignment Group">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Fraunces", serif;
+            font-size: 20px;
+            line-height: 1.7;
+            color: #1F2127;
+            background-color: #ECE6DC;
+        }
+        
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        .narrow-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        header {
+            border-bottom: 2px solid #1F2127;
+            padding: 24px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .site-title {
+            color: #ff6c0c;
+            font-size: 32px;
+            font-weight: 400;
+            margin: 0;
+            text-decoration: none;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav a {
+            text-decoration: underline;
+            color: #1F2127;
+        }
+        
+        nav a:hover {
+            color: #ff6c0c;
+        }
+        
+        .page-header {
+            text-align: center;
+            padding: 64px 0 48px;
+            border-bottom: 2px solid #1F2127;
+            margin-bottom: 64px;
+        }
+        
+        .page-header h1 {
+            font-size: 64px;
+            font-weight: 600;
+            line-height: 1.25;
+            margin: 0;
+            color: #1F2127;
+        }
+        
+        .page-header p {
+            font-size: 24px;
+            margin-top: 16px;
+            color: #666;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin: 64px 0;
+        }
+        
+        .blog-post {
+            background-color: #fff;
+            border: 2px solid #1F2127;
+            padding: 24px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .blog-post:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(31, 33, 39, 0.1);
+        }
+        
+        .blog-post h2 {
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
+        
+        .blog-post h2 a {
+            color: #1F2127;
+            text-decoration: none;
+        }
+        
+        .blog-post h2 a:hover {
+            color: #ff6c0c;
+        }
+        
+        .blog-post .date {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .blog-post .excerpt {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        
+        .blog-post .read-more {
+            color: #ff6c0c;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .blog-post .read-more:hover {
+            text-decoration: underline;
+        }
+        
+        .blog-post .tags {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #eee;
+        }
+        
+        .tag {
+            display: inline-block;
+            background-color: #f0f0f0;
+            color: #666;
+            padding: 4px 12px;
+            font-size: 14px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        footer {
+            background-color: #1F2125;
+            color: #FFFFFF;
+            padding: 24px 0;
+            margin-top: 64px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-content p {
+            font-size: 16px;
+            margin: 0;
+        }
+        
+        .footer-nav a {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 16px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+            
+            .page-header h1 {
+                font-size: 40px;
+            }
+            
+            .site-title {
+                font-size: 28px;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .blog-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
 
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="site-title">Caltech AI Alignment</a>
+                
+                <nav aria-label="Main navigation">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tab_page.html">What is AI Alignment?</a></li>
+                        <li><a href="blog.html" aria-current="page">Blog</a></li>
+                        <li><a href="#">Not Studying CS?</a></li>
+                        <li><a href="#">What is ML Safety?</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="narrow-container">
+            <h1>Blog Posts</h1>
+            <p>Insights and research from the Caltech AI Alignment community</p>
+        </div>
+    </div>
+
+    <main>
+        <div class="narrow-container">
+            <div class="blog-grid">
+                
+                <!-- Blog Post 1 -->
+                <article class="blog-post">
+                    <h2><a href="posts/alignment-research-directions.html">Current Research Directions in AI Alignment</a></h2>
+                    <div class="date">March 15, 2024</div>
+                    <div class="excerpt">
+                        An overview of the most promising research directions in AI alignment, including interpretability, robustness, and value learning approaches...
+                    </div>
+                    <a href="posts/alignment-research-directions.html" class="read-more">Read More →</a>
+                    <div class="tags">
+                        <span class="tag">Research</span>
+                        <span class="tag">Alignment</span>
+                        <span class="tag">Technical</span>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-post">
+                    <h2><a href="posts/fellowship-experience.html">My Experience in the CAIA Fellowship</a></h2>
+                    <div class="date">March 8, 2024</div>
+                    <div class="excerpt">
+                        A student's reflection on participating in Caltech's AI Alignment Fellowship program and the insights gained from the experience...
+                    </div>
+                    <a href="posts/fellowship-experience.html" class="read-more">Read More →</a>
+                    <div class="tags">
+                        <span class="tag">Fellowship</span>
+                        <span class="tag">Student Experience</span>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-post">
+                    <h2><a href="posts/interpretability-challenges.html">The Challenge of AI Interpretability</a></h2>
+                    <div class="date">February 28, 2024</div>
+                    <div class="excerpt">
+                        Understanding how AI systems make decisions is crucial for alignment. We explore the current state and future of interpretability research...
+                    </div>
+                    <a href="posts/interpretability-challenges.html" class="read-more">Read More →</a>
+                    <div class="tags">
+                        <span class="tag">Interpretability</span>
+                        <span class="tag">Research</span>
+                        <span class="tag">ML Safety</span>
+                    </div>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="blog-post">
+                    <h2><a href="posts/policy-considerations.html">Policy Considerations for AI Safety</a></h2>
+                    <div class="date">February 20, 2024</div>
+                    <div class="excerpt">
+                        Technical solutions alone won't solve AI alignment. We need thoughtful policy frameworks to ensure safe deployment of advanced AI systems...
+                    </div>
+                    <a href="posts/policy-considerations.html" class="read-more">Read More →</a>
+                    <div class="tags">
+                        <span class="tag">Policy</span>
+                        <span class="tag">Governance</span>
+                        <span class="tag">AI Safety</span>
+                    </div>
+                </article>
+
+                <!-- Blog Post 5 -->
+                <article class="blog-post">
+                    <h2><a href="posts/getting-started-guide.html">Getting Started in AI Alignment Research</a></h2>
+                    <div class="date">February 12, 2024</div>
+                    <div class="excerpt">
+                        A comprehensive guide for students and researchers interested in contributing to AI alignment work, including resources and career paths...
+                    </div>
+                    <a href="posts/getting-started-guide.html" class="read-more">Read More →</a>
+                    <div class="tags">
+                        <span class="tag">Getting Started</span>
+                        <span class="tag">Career</span>
+                        <span class="tag">Resources</span>
+                    </div>
+                </article>
+
+                <!-- Blog Post 6 -->
+                <article class="blog-post">
+                    <h2><a href="posts/mesa-optimization.html">Understanding Mesa-Optimization in AI Systems</a></h2>
+                    <div class="date">January 30, 2024</div>
+                    <div class="excerpt">
+                        Mesa-optimization occurs when an AI system develops internal optimization processes. We examine why this matters for alignment...
+                    </div>
+                    <a href="posts/mesa-optimization.html" class="read-more">Read More →</a>
+                    <div class="tags">
+                        <span class="tag">Mesa-Optimization</span>
+                        <span class="tag">Technical</span>
+                        <span class="tag">Safety</span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>Caltech AI Alignment</p>
+                <div class="footer-nav">
+                    <a href="mailto:caltechaia@gmail.com">caltechaia@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
